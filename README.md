@@ -15,9 +15,14 @@
 
    ```
    [Documentos]
+   comment = pasta comaprtilhada
    path = /home/andre/Documentos
+   valid users = andre
    read only = no
-   guest ok = yes
+   browsable = yes
+   writable - yes
+   guest ok = no
+   create mask = 0765
    ```
    - Salve e feche o arquivo.
 
