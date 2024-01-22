@@ -1,5 +1,5 @@
 # Fedora-Samba-Compartilhamento
-### **Tutorial para instalação do Samba e Configuração de compartilhamento de arquivos no Fedora**
+#### **Tutorial para instalação do Samba e Configuração de compartilhamento de arquivos no Fedora**
 ---
 
 <img src="/imagens/samba.png">      <img src="/imagens/fedora.png">
@@ -15,7 +15,7 @@
 
    ```
    [Documentos]
-   comment = pasta comaprtilhada
+   comment = pasta compartilhada
    path = /home/andre/Documentos
    valid users = andre
    read only = no
