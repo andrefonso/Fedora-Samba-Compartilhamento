@@ -2,7 +2,7 @@
 ### **Tutorial para instalação do Samba e Configuração de compartilhamento de arquivos no Fedora**
 ---
 
-<img src="/imagens/samba.png">
+<img src="/imagens/samba.png">      <img src="/imagens/fedora.png">
 
 **1) Instale o Samba:**</br>
    `sudo dnf install samba`
