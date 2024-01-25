@@ -20,7 +20,7 @@
    valid users = andre
    read only = no
    browsable = yes
-   writable - yes
+   writable = yes
    guest ok = no
    create mask = 0765
    ```
