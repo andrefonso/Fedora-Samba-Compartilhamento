@@ -25,7 +25,7 @@ guest ok = no
 create mask = 0765
 ```
 
-Salve e feche o arquivo.
+- Salve e feche o arquivo.
 
 **3) Adicione seu usuário ao grupo Samba:**</br>
    `sudo usermod -aG smbusers andre`
@@ -73,17 +73,17 @@ sudo firewall-cmd --reload
   
  - Editar o arquivo smb.conf e inserir o seguinte conteúdo:</br>
 ```
-  [Documentos]
-	comment = pasta compartilhada
-	path = /home/andre/Documentos
-	valid users = andre
-	read only = no
-	browseable = yes
-	writeable = yes
-	guest ok = no
-	create mask = 0765
-   directory mask = 0755
-   write list = user
+[Documentos]
+comment = pasta compartilhada
+path = /home/andre/Documentos
+valid users = andre
+read only = no
+browseable = yes
+writeable = yes
+guest ok = no
+create mask = 0765
+directory mask = 0755
+write list = user
 ```
         
 - Restartar o Samba para que as mudanças surtam efeito:</br>
