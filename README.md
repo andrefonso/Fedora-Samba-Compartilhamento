@@ -13,18 +13,19 @@
 
    - Adicione o seguinte bloco no final do arquivo para compartilhar a pasta "Documentos":
 
-   ```
-   [Documentos]
-   comment = pasta compartilhada
-   path = /home/andre/Documentos
-   valid users = andre
-   read only = no
-   browsable = yes
-   writable = yes
-   guest ok = no
-   create mask = 0765
-   ```
-   - Salve e feche o arquivo.
+ ```
+[Documentos]
+comment = pasta compartilhada
+path = /home/andre/Documentos
+valid users = andre
+read only = no
+browsable = yes
+writable = yes
+guest ok = no
+create mask = 0765
+```
+
+Salve e feche o arquivo.
 
 **3) Adicione seu usuário ao grupo Samba:**</br>
    `sudo usermod -aG smbusers andre`
@@ -47,4 +48,47 @@ sudo firewall-cmd --permanent --add-service=samba
 sudo firewall-cmd --permanent --zone=public --add-service=samba
 sudo firewall-cmd --reload
 ```
+
+## **Comandos que executei para compartilhar pastas no Fedora:**
+
+1) Instalação e ativação do Samba:</br>
+```
+sudo dnf install samba
+sudo systemctl enable smb --now
+firewall-cmd --get-active-zones
+sudo firewall-cmd --permanent --zone=FedoraWorkstation --add-service=samba
+sudo firewall-cmd --reload
+```
+
+2) Compartilhamento de pasta:
+
+ - Criar usuário:</br>
+   ``sudo smbpasswd -a andre``
+   
+ - Criar diretório a ser compartilhado, mas se já existir digitar os comandos:</br>
+ ```
+   sudo semanage fcontext --add --type "samba_share_t" "/home/andre/Documentos(/.*)?
+   sudo restorecon -R ~/share
+```
+  
+ - Editar o arquivo smb.conf e inserir o seguinte conteúdo:</br>
+```
+  [Documentos]
+	comment = pasta compartilhada
+	path = /home/andre/Documentos
+	valid users = andre
+	read only = no
+	browseable = yes
+	writeable = yes
+	guest ok = no
+	create mask = 0765
+   directory mask = 0755
+   write list = user
+```
+        
+- Restartar o Samba para que as mudanças surtam efeito:</br>
+ ``sudo systemctl restart smb nmb``
+ 
+ Fonte de pesquisa: https://docs.fedoraproject.org/en-US/quick-docs/samba/
+
 
