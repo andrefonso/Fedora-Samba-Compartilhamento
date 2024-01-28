@@ -68,7 +68,7 @@ sudo firewall-cmd --reload
  - Criar diretório a ser compartilhado, mas se já existir digitar os comandos:</br>
  ```
    sudo semanage fcontext --add --type "samba_share_t" "/home/andre/Documentos(/.*)?
-   sudo restorecon -R ~/share
+   sudo restorecon -R ~/Documentos
 ```
   
  - Editar o arquivo smb.conf e inserir o seguinte conteúdo:</br>
