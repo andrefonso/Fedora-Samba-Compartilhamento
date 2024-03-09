@@ -18,7 +18,7 @@ sudo firewall-cmd --reload
  - Criar usuário:</br>
    ``sudo smbpasswd -a andre``
    
- - Digitar os comandos abaixo para compartilhar a pasta Documentos na minha hoje:</br>
+ - Digitar os comandos abaixo para compartilhar a pasta Documentos na minha Home:</br>
  ```
    sudo semanage fcontext --add --type "samba_share_t" "/home/andre/Documentos(/.*)?"
    sudo restorecon -R ~/Documentos
